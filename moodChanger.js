@@ -10,25 +10,25 @@ const randomButton = document.querySelector("#random");
 const MOODS = { "HAPPY": "＼(＾▽＾)／", "SLEEPING": "(ᴗ˳ᴗ)", "CONFUSED": "ఠ_ఠ", "DEVILISH": "( ｀▽´ )Ψ" };
 
 happyButton.addEventListener("click", () => {
-  store.dispatch({ type: "HAPPY", payload: MOODS.HAPPY });
+  store.dispatch({ type: "SET_STATE", payload: MOODS.HAPPY });
   const state = store.getState();
   h1.innerText = state.emoji;
 });
 
 sleepyButton.addEventListener("click", () => {
-  store.dispatch({ type: "SLEEPING", payload: MOODS.SLEEPING });
+  store.dispatch({ type: "SET_STATE", payload: MOODS.SLEEPING });
   const state = store.getState();
   h1.innerText = state.emoji;
 });
 
 confusedButton.addEventListener("click", () => {
-  store.dispatch({ type: "CONFUSED", payload: MOODS.CONFUSED });
+  store.dispatch({ type: "SET_STATE", payload: MOODS.CONFUSED });
   const state = store.getState();
   h1.innerText = state.emoji;
 });
 
 devilishButton.addEventListener("click", () => {
-  store.dispatch({ type: "DEVILISH", payload: MOODS.DEVILISH });
+  store.dispatch({ type: "SET_STATE", payload: MOODS.DEVILISH });
   const state = store.getState();
   h1.innerText = state.emoji;
 })
@@ -36,7 +36,7 @@ devilishButton.addEventListener("click", () => {
 randomButton.addEventListener("click", () => {
   const randomChoice = Math.floor(Math.random() * 4);
   const mood = (Object.keys(MOODS))[randomChoice];
-  store.dispatch({ type: mood, payload: MOODS[mood] });
+  store.dispatch({ type: "SET_STATE", payload: MOODS[mood] });
   const state = store.getState();
   h1.innerText = state.emoji;
 })
